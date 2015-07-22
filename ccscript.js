@@ -18,8 +18,24 @@ function getSocial(){
 	var findURL = /http.*/g;
 	
 	// put socials in array
+	var socialsRaw = [text.match(RtwitterWP), text.match(RtwitterWM), text.match(Rfacebook), text.match(RgoogleWM), text.match(RgoogleWP)];
+	
 	var socials = [];
-	console.log(text.match(Rfacebook).toString())
+	
+	for (var k = 0; k < socialsRaw.length; k++) {
+		try { // catch errors (as in, black entries)
+			socials.push(socialsRaw[i].toString());
+		}
+		catch(err) {
+			socials.push("");
+		}
+		// it should just paste this in verbatim
+	x = "<tr id='toSelect'><th>"+urls[0]+"</th><th>"+urls[1]+"</th><th>"+urls[2]+"</th><th>"+urls[3]+"</th><th>"+urls[4]+"</th></tr>";
+	result.innerHTML = x;
+		
+};
+	
+	
 	socials.push(text.match(RtwitterWP).toString(), text.match(RtwitterWM).toString(), text.match(Rfacebook).toString(), text.match(RgoogleWM).toString(), text.match(RgoogleWP).toString());
 	
 	console.log(socials); //debugging yay
@@ -28,7 +44,6 @@ function getSocial(){
 	
 		// put url in array
 		urls.push(socials[i].match(findURL));
-		console.log(urls); //debugging yay
 		}
 		// it should just paste this in verbatim
 	x = "<tr id='toSelect'><th>"+urls[0]+"</th><th>"+urls[1]+"</th><th>"+urls[2]+"</th><th>"+urls[3]+"</th><th>"+urls[4]+"</th></tr>";
@@ -36,7 +51,7 @@ function getSocial(){
 		
 };
 
-function SelectText(element) {
+function SelectText(element) { //this code from https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
     var doc = document
         , text = doc.getElementById(element)
         , range, selection
