@@ -3,11 +3,12 @@
     <head>
     	<title>Social Media to Content Calendar</title>
 	    <script type="text/javascript" src="ccscript.js"></script>
+	    <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
 		<textarea id="stuffs" style="width: 100%; height: 150px"></textarea><br/><br/>
-		<table id="result">
-  		<tr>
+		<table id="result" style="font-weight:300; background:none;">
+  		<tr id="toSelect">
     		<th>FB</th>
     		<th>@Wikipedia</th>
     		<th>@Wikimedia</th>
@@ -16,7 +17,7 @@
   		</tr>
 		</table>
 		<button onclick="getSocial()">Go!</button>
-		<button onclick="SelectText('result')">Select/Copy to clipboard</button>
+		<button onclick="SelectText('toSelect')">Select/Copy to clipboard</button>
 		<div id="answer"></div>
 	</body>
 </html>
