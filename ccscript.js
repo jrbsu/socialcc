@@ -23,15 +23,12 @@ function getSocial(){
 	var socials = [];
 	
 	for (var k = 0; k < socialsRaw.length; k++) {
-		try { // catch errors (as in, black entries)
-			socials.push(socialsRaw[i].toString());
+		try { // catch errors (as in, blank entries)
+			socials.push(socialsRaw[k].toString());
 		}
 		catch(err) {
 			socials.push("");
 		}
-		// it should just paste this in verbatim
-	x = "<tr id='toSelect'><th>"+urls[0]+"</th><th>"+urls[1]+"</th><th>"+urls[2]+"</th><th>"+urls[3]+"</th><th>"+urls[4]+"</th></tr>";
-	result.innerHTML = x;
 		
 };
 	
