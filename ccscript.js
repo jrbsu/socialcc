@@ -35,9 +35,6 @@ function getSocial(){
 		
 };
 	
-	
-	socials.push(text.match(RtwitterWP).toString(), text.match(RtwitterWM).toString(), text.match(Rfacebook).toString(), text.match(RgoogleWM).toString(), text.match(RgoogleWP).toString());
-	
 	console.log(socials); //debugging yay
 	
 	for (var i = 0; i < socials.length; i++) {
