@@ -8,11 +8,11 @@ function getSocial(){
 	var urls = [];
 		
 	// Finds a line of SM
-	var Rfacebook = /(^FB.*)/gm;
-	var RtwitterWP = /(^@Wikipedia.*)/gm;
-	var RtwitterWM = /(^@Wikimedia.*)/gm;
-	var RgoogleWP = /(^WP G+.*)/gm;
-	var RgoogleWM = /(^WMF G+.*)/gm;
+	var Rfacebook = /(^FB.*)/igm;
+	var RtwitterWP = /(^@Wikipedia.*)/igm;
+	var RtwitterWM = /(^@Wikimedia.*)/igm;
+	var RgoogleWP = /(^WP G+.*|^Wikipedia G+.*)/igm;
+	var RgoogleWM = /(^WMF G+.*|^Wikimedia G+.*|^Wikimedia Foundation G+.*)/igm;
 	
 	// Finds the URL
 	var findURL = /http.*/g;
