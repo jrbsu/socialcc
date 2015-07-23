@@ -23,26 +23,37 @@ function getSocial(){
 	var socials = [];
 	
 	for (var k = 0; k < socialsRaw.length; k++) {
-		try { // catch errors (as in, blank entries)
-			socials.push(socialsRaw[k].toString());
+		if (socialsRaw[k] != null) {
+			try { // catch errors (as in, blank entries)
+				socials.push(socialsRaw[k].toString());
+			}
+			catch(err) {
+				socials.push(null);
+			}
+		} else {
+			socials.push(null);
 		}
-		catch(err) {
-			socials.push("");
-		}
+	}
 		
-};
-	
-	console.log(socials); //debugging yay
-	
 	for (var i = 0; i < socials.length; i++) {
-	
-		// put url in array
-		urls.push(socials[i].match(findURL));
+		if (socials[i] != null) {
+			try {
+				// put url in array
+				urls.push(socials[i].match(findURL));
+			}
+			catch(err) {
+				urls.push("[none]");
+			}
+		} else {
+			urls.push("");
 		}
-		// it should just paste this in verbatim
+	};
+	
+	console.log(socials, socialsRaw, urls); //debugging yay
+	
+	// it should just paste this in verbatim
 	x = "<tr id='toSelect'><th>"+urls[0]+"</th><th>"+urls[1]+"</th><th>"+urls[2]+"</th><th>"+urls[3]+"</th><th>"+urls[4]+"</th></tr>";
 	result.innerHTML = x;
-		
 };
 
 function SelectText(element) { //this code from https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
